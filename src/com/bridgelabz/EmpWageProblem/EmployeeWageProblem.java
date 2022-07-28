@@ -6,6 +6,7 @@ public class EmployeeWageProblem {
     public static final int PART_TIME = 2;
     public static final int WAGE_PER_HOUR = 20;
     public static final int WORKING_DAYS=20;
+    public  static  final int TOTAL_WORKING_HOURS = 100;
 
 
 
@@ -13,44 +14,50 @@ public class EmployeeWageProblem {
         int empHrs = 0;
         int empWage = 0;
         int totalEmpWage = 0;
+        int days=0;
+        int totalEmpHrs = 0;
+        int totalWorkingDays = 0;
 
         System.out.println("Welcome to Employee Wage Computation Program");
-        for(int day=1;day<=WORKING_DAYS;day++)
-        {
-            System.out.println("Day-"+(day));
+        while(totalEmpHrs <= TOTAL_WORKING_HOURS && totalWorkingDays < WORKING_DAYS) {
+            totalWorkingDays++;
+
+            System.out.println("Day-"+(days+1));
 
         int empCheck = (int) (Math.floor(Math.random() * 10) %3);
-
-        if(empCheck == FULL_TIME)
-            System.out.println("Employee is Full Day Present");
-        else if(empCheck == PART_TIME)
-            System.out.println("Employee is Half Day Present");
-        else if(empCheck == ABSENT)
-            System.out.println("Employee is Absent");
 
 
         switch(empCheck){
 
             case PART_TIME:
                 empHrs = 4;
+                System.out.println("Employee is Half Day Present");
                 break;
 
             case  FULL_TIME:
                 empHrs = 8;
+                System.out.println("Employee is Full Day Present");
                 break;
 
             default:
                 empHrs = 0;
+                System.out.println("Employee is Absent");
         }
 
 
 
         empWage = empHrs * WAGE_PER_HOUR ;
         System.out.println("Employee wage is: "+ empWage);
-        System.out.println("--------------------");
-        totalEmpWage=totalEmpWage+empWage;
+        System.out.println("-----------------------------------------");
+        totalEmpWage = totalEmpWage + empWage;
+        totalEmpHrs = totalEmpHrs + empHrs;
+        days++;
+
     }
         System.out.println("Employee total wage is: "+ totalEmpWage);
+        System.out.println("Employee total Working hours is: "+ totalEmpHrs);
+        System.out.println("Total Days worked By the Employee:" + totalWorkingDays);
+
     }
 
 }
