@@ -5,14 +5,19 @@ public class EmployeeWageProblem {
     public static  final int FULL_TIME = 1;
     public static final int PART_TIME = 2;
     public static final int WAGE_PER_HOUR = 20;
+    public static final int WORKING_DAYS=20;
 
 
 
     public static void main(String[] args) {
         int empHrs = 0;
         int empWage = 0;
+        int totalEmpWage = 0;
 
         System.out.println("Welcome to Employee Wage Computation Program");
+        for(int day=1;day<=WORKING_DAYS;day++)
+        {
+            System.out.println("Day-"+(day));
 
         int empCheck = (int) (Math.floor(Math.random() * 10) %3);
 
@@ -42,5 +47,11 @@ public class EmployeeWageProblem {
 
         empWage = empHrs * WAGE_PER_HOUR ;
         System.out.println("Employee wage is: "+ empWage);
+        System.out.println("--------------------");
+        totalEmpWage=totalEmpWage+empWage;
     }
+        System.out.println("Employee total wage is: "+ totalEmpWage);
+    }
+
 }
+
