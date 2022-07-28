@@ -24,12 +24,19 @@ public class EmployeeWageProblem {
             System.out.println("Employee is Absent");
 
 
-        if(empCheck == FULL_TIME)
-            empHrs = 8;
-        else if(empCheck == PART_TIME)
-            empHrs = 4;
-        else if (empCheck == ABSENT)
-            empHrs = 0;
+        switch(empCheck){
+
+            case PART_TIME:
+                empHrs = 4;
+                break;
+
+            case  FULL_TIME:
+                empHrs = 8;
+                break;
+
+            default:
+                empHrs = 0;
+        }
 
 
 
